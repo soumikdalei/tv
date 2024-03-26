@@ -2,7 +2,8 @@ const form=document.querySelector('#searchform')
 form.addEventListener('submit',async(e)=>{
 e.preventDefault();
 const searchterm=form.elements.query.value
-const response=await axios.get(`https://api.tvmaze.com/search/shows?q=${searchterm}`)
+const fig={params:{q:searchterm}}
+const response=await axios.get(`https://api.tvmaze.com/search/shows`,fig)
 console.log(response.data)
 makeimages(response.data)
 form.elements.query.value=""
